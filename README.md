@@ -34,8 +34,7 @@ Cada livro adicionado à sua estante pode ter um **status personalizado**. Isso 
 - ✅ Lido
 - 📖 Lendo
 - ⭐ Quero Ler
-- 🕐 Pausado
-- ❌ Abandonado
+
 
 Esses status são armazenados no **banco de dados**, o que garante que eles persistam mesmo ao recarregar a página ou mudar de dispositivo.
 
@@ -44,13 +43,13 @@ Esses status são armazenados no **banco de dados**, o que garante que eles pers
 ## 🛠 Tecnologias utilizadas
 
 **Frontend:**
-- HTML5 + CSS3 + JavaScript puro
+- HTML5 + CSS3 + JavaScript 
 - Consumo de API (fetch + JSON)
-- Design responsivo (mobile-first)
+
 
 **Backend:**
-- Node.js (ou linguagem usada)
-- Banco de dados (ex: MongoDB, PostgreSQL, SQLite – depende da stack real)
+- Node.js 
+- Banco de dados 
 - Render (deploy da aplicação)
 
 ---
