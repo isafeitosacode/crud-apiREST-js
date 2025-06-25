@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <a href="#" class="sidebar-logo">
+                <i class="fa-solid fa-book-open"></i>
+            </a>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="menu-link active" data-view="home-view"><i class="fa-solid fa-house"></i> <span>Início</span></a></li>
+                <li><a href="#" class="menu-link" data-view="search-view"><i class="fa-solid fa-magnifying-glass"></i> <span>Buscar Livros</span></a></li>
+            </ul>
+            <div class="sidebar-shelves">
+                <h3 class="shelves-title">MINHAS ESTANTES</h3>
+                <ul id="shelves-list">
+                    </ul>
+                <button id="add-shelf-btn"><i class="fa-solid fa-plus"></i> Nova Estante</button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <section id="home-view" class="view">
+                <div class="view-header">
+                    <h1>Início</h1>
+                </div>
+                <div id="home-books-grid" class="book-grid">
+                    </div>
+            </section>
+
+            <section id="search-view" class="view hidden">
+                <div class="search-header">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Busque por título, autor ou gênero...">
+                </div>
+                <div id="searchResults" class="book-grid"></div>
+            </section>
+
+            <section id="shelf-view" class="view hidden">
+                <div class="view-header">
+                    <h1 id="shelf-title"></h1>
+                </div>
+                <div id="shelf-books" class="book-grid"></div>
+            </section>
+            
+            <section id="detail-view" class="view hidden">
+                <div class="view-header">
+                    <button id="detail-back-to-shelf-btn" class="btn-link hidden">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span id="back-to-shelf-name">Voltar para a Estante</span>
+                    </button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-left">
+                        <h1 id="detail-title"></h1>
+                        <p class="detail-author">Por <span id="detail-author-name"></span></p>
+                        
+                        <div class="detail-status-section hidden">
+                            <span>Status:</span>
+                            <strong id="detail-current-status">Nenhum</strong>
+                            <button id="detail-change-status-btn" class="btn-link-small"><i class="fa-solid fa-pencil"></i> Alterar</button>
+                        </div>
+
+                        <p id="detail-description"></p>
+                        <div class="detail-actions">
+                            <button id="detail-add-to-shelf-btn"><i class="fa-solid fa-plus"></i> Adicionar à Estante</button>
+                            <button id="detail-remove-from-shelf-btn" class="btn-danger hidden"><i class="fa-solid fa-trash-can"></i> Remover da Estante</button>
+                        </div>
+                    </div>
+                    <div class="detail-right">
+                        <img id="detail-cover" src="" alt="Capa do livro">
+                    </div>
+                </div>
+                <div class="similar-books">
+                    <h2>Mais Livros Similares</h2>
+                    <div id="similar-books-grid" class="book-grid"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="add-to-shelf-modal" class="modal-wrapper hidden">
+        <div class="modal-content">
+            <h3>Adicionar à Estante</h3>
+            <p>Selecione uma estante para adicionar <strong id="modal-book-title"></strong>:</p>
+            <select id="modal-shelf-select">
+            </select>
+            
+            <p>Defina um status inicial para este livro:</p>
+            <select id="modal-status-select">
+                <option value="Quero Ler">Quero Ler</option>
+                <option value="Lendo">Lendo</option>
+                <option value="Lido">Lido</option>
+            </select>
+
+            <div class="modal-actions">
+                <button id="modal-cancel-btn">Cancelar</button>
+                <button id="modal-confirm-add-btn">Adicionar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="change-status-modal" class="modal-wrapper hidden">
+        <div class="modal-content">
+            <h3>Alterar Status de Leitura</h3>
+            <p>Qual o status de <strong id="status-modal-book-title"></strong>?</p>
+            <select id="status-modal-select-update">
+                <option value="Quero Ler">Quero Ler</option>
+                <option value="Lendo">Lendo</option>
+                <option value="Lido">Lido</option>
+            </select>
+            <div class="modal-actions">
+                <button id="status-modal-cancel-btn">Cancelar</button>
+                <button id="status-modal-confirm-btn">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
